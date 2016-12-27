@@ -1,4 +1,7 @@
 # Shoulda Matchmakers
+
+[![Gem Version](https://badge.fury.io/rb/shoulda_matchmakers.svg)](https://badge.fury.io/rb/shoulda_matchmakers)
+
 Shoulda Matchmakers facilitates the generation of Rspec tests for your existing ActiveRecord models and ActionController controllers using Thoughtbot's Shoulda Matchers https://github.com/thoughtbot/shoulda-matchers
 
 Shoulda Matchmakers is based on Erwin Schens' Regressor https://github.com/ndea/regressor
