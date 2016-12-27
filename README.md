@@ -195,3 +195,12 @@ There are a couple of things to keep in mind when using this gem. First, Shoulda
 
 ### Why are some matchmakers marked as 'experimental'?
 Well, 'experimental' seemed to induce a little more confidence than 'iffy' or 'crap shoot'. In truth, the 'experimental' signification is attached to matchmakers which rely on parsing your application's model or controller files in order to identify relevant code. And, at this stage, the parsing is still somewhat rudimentary which means it will likely have a higher level of success when your application utilizes more common, simplistic Ruby/Rails syntax for the code these parsings are attempting to identify. This dependency on more simplistic syntax makes these matchmakers a bit brittle, at times prone to overlook relevant code or, conversely, to mis-identify irrelevant code as relevant. This brittleness should continue to improve in subsequent versions through user feedback and parsing refinement, but it is important to be aware that, when using these matchmakers, you should verify the resulting generated tests for validity and accuracy. As stated above, though, Shoulda Matchmakers does not alter your application's code and, therefore, anything done can be undone.
+
+## Compatibility
+Shoulda Matchmakers was developed with Ruby 2.3.3, Rails 4.2.7, RSpec 3.5.2, Postgres 0.18.4, and Haml 4.0.7.
+
+## Versioning
+Shoulda Matchmakers follows Semantic Versioning 2.0 as defined at http://semver.org.
+
+## License
+Shoulda Matchmakers is copyright ©2016 App-o-matix Software. It is free software and may be redistributed under the terms specified in the MIT-LICENSE file.
