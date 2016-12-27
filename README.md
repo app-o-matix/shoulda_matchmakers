@@ -190,10 +190,10 @@ RAILS_ENV=test rails generate shoulda_matchmakers:factory -e User Project::Issue
 RAILS_ENV=test rails generate shoulda_matchmakers:factory -E User Project::Issue Account
 ```
 
-### Let's level set expectations
+## Let's level set expectations
 There are a couple of things to keep in mind when using this gem. First, Shoulda Matchmakers is not a turn-key solution, nor is it currently intended to be. While some of the Rspec tests generated will run without any additional code, many will require attribute values, additional befores, lets, etc., and/or code that accounts for relevant code in your application that exist within conditional statements, which at this time Shoulda Matchmakers is unable to discern. Second, the Shoulda Matchmakers gem is currently a prototype, so there will undoubtedly be bumps and hiccups early on. The good news is that Shoulda Matchmakers does not alter your application's code or functionality, so anything done can be undone. No harm, no foul!
 
-### Why are some matchmakers marked as 'experimental'?
+## Why are some matchmakers marked as 'experimental'?
 Well, 'experimental' seemed to induce a little more confidence than 'iffy' or 'crap shoot'. In truth, the 'experimental' signification is attached to matchmakers which rely on parsing your application's model or controller files in order to identify relevant code. And, at this stage, the parsing is still somewhat rudimentary which means it will likely have a higher level of success when your application utilizes more common, simplistic Ruby/Rails syntax for the code these parsings are attempting to identify. This dependency on more simplistic syntax makes these matchmakers a bit brittle, at times prone to overlook relevant code or, conversely, to mis-identify irrelevant code as relevant. This brittleness should continue to improve in subsequent versions through user feedback and parsing refinement, but it is important to be aware that, when using these matchmakers, you should verify the resulting generated tests for validity and accuracy. As stated above, though, Shoulda Matchmakers does not alter your application's code and, therefore, anything done can be undone.
 
 ## Compatibility
