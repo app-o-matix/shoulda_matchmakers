@@ -1,0 +1,10 @@
+.bundle/
+log/*.log
+pkg/
+spec/dummy
+spec/dummy/db/*.pg
+spec/dummy/log/*.log
+spec/dummy/tmp/
+spec/dummy/.sass-cache
+.idea
+.idea/*

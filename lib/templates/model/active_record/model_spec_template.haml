@@ -1,0 +1,233 @@
+= "RSpec.describe #{ @active_record_model_sm_model.app_class_name }, type: :model, shoulda_matchmakers: true do"
+
+- belong_to_matcher_tests               = @active_record_model_sm_model.association_matcher_tests("belongs_to")
+- have_one_matcher_tests                = @active_record_model_sm_model.association_matcher_tests("has_one")
+- have_many_matcher_tests               = @active_record_model_sm_model.association_matcher_tests("has_many")
+- have_and_belong_to_many_matcher_tests = @active_record_model_sm_model.association_matcher_tests("has_and_belongs_to_many")
+
+- if belong_to_matcher_tests.present? || have_one_matcher_tests.present? || have_many_matcher_tests.present? || |
+     have_and_belong_to_many_matcher_tests.present? |
+  = "\n"
+  \# ------------------------------------------------------------------------------------------------
+  \# #### Associations
+
+  - if belong_to_matcher_tests.present?
+    \#
+    \# ##### belongs_to
+    \#
+    = belong_to_matcher_tests
+    = "\n"
+
+  - if have_one_matcher_tests.present?
+    \#
+    \# ##### has_one
+    \#
+    = have_one_matcher_tests
+    = "\n"
+
+  - if have_many_matcher_tests.present?
+    \#
+    \# ##### has_many
+    \#
+    = have_many_matcher_tests
+    = "\n"
+
+  - if have_and_belong_to_many_matcher_tests.present?
+    \#
+    \# ##### has_and_belongs_to_many
+    \#
+    = have_and_belong_to_many_matcher_tests
+    = "\n"
+
+
+- accept_nested_attributes_for_matcher_tests = @active_record_model_sm_model.accept_nested_attributes_for_matcher_tests
+- have_readonly_attribute_matcher_tests      = @active_record_model_sm_model.have_readonly_attribute_matcher_tests
+- have_secure_password_matcher_tests         = @active_record_model_sm_model.have_secure_password_matcher_tests
+
+- if accept_nested_attributes_for_matcher_tests.present? || have_readonly_attribute_matcher_tests.present? || |
+    have_secure_password_matcher_tests.present? |
+  = "\n"
+  \# ------------------------------------------------------------------------------------------------
+  \# #### Attributes
+
+  - if accept_nested_attributes_for_matcher_tests.present?
+    \#
+    \# ##### accept_nested_attributes_for
+    \#
+    = accept_nested_attributes_for_matcher_tests
+    = "\n"
+
+  - if have_readonly_attribute_matcher_tests.present?
+    \#
+    \# ##### have_readonly_attribute
+    \#
+    = have_readonly_attribute_matcher_tests
+    = "\n"
+
+  - if have_secure_password_matcher_tests.present?
+    \#
+    \# ##### have_secure_password
+    \#
+    = have_secure_password_matcher_tests
+    = "\n"
+
+
+- have_db_column_matcher_tests = @active_record_model_sm_model.have_db_column_matcher_tests
+- have_db_index_matcher_tests  = @active_record_model_sm_model.have_db_index_matcher_tests
+
+- if have_db_column_matcher_tests.present? || have_db_index_matcher_tests.present?
+  = "\n"
+  \# ------------------------------------------------------------------------------------------------
+  \# #### Database
+
+  - if have_db_column_matcher_tests.present?
+    \#
+    \# ##### columns
+    \#
+    = have_db_column_matcher_tests
+    = "\n"
+
+  - if have_db_index_matcher_tests.present?
+    \#
+    \# ##### indexes
+    \#
+    = have_db_index_matcher_tests
+    = "\n"
+
+
+- if ShouldaMatchmakers.configuration.include_enums
+  - define_enum_for_matcher_tests = @active_record_model_sm_model.define_enum_for_matcher_tests || ""
+- serialize_matcher_tests = @active_record_model_sm_model.serialize_matcher_tests
+
+- if define_enum_for_matcher_tests.present? || serialize_matcher_tests.present?
+  = "\n"
+  \# ------------------------------------------------------------------------------------------------
+  \# #### Enums & Serialize
+
+  - if define_enum_for_matcher_tests.present?
+    \#
+    \# ##### enums
+    \#
+    = define_enum_for_matcher_tests
+    = "\n"
+
+  - if serialize_matcher_tests.present?
+    \#
+    \# ##### serialize
+    \#
+    = serialize_matcher_tests
+    = "\n"
+
+
+- delegate_method_matcher_tests = @active_record_model_sm_model.delegate_method_matcher_tests
+
+- if delegate_method_matcher_tests.present?
+  = "\n"
+  \# ------------------------------------------------------------------------------------------------
+  \# #### Methods
+
+  - if delegate_method_matcher_tests.present?
+    \#
+    \# ##### delegate_method
+    \#
+    = delegate_method_matcher_tests
+    = "\n"
+
+
+- allow_value_matcher_tests              = @active_record_model_sm_model.allow_value_matcher_tests
+- validate_absence_of_matcher_tests      = @active_record_model_sm_model.validator_matcher_tests(::ActiveModel::Validations::AbsenceValidator)
+- validate_acceptance_of_matcher_tests   = @active_record_model_sm_model.validator_matcher_tests(::ActiveModel::Validations::AcceptanceValidator)
+- validate_confirmation_of_matcher_tests = @active_record_model_sm_model.validator_matcher_tests(::ActiveModel::Validations::ConfirmationValidator)
+- validate_exclusion_of_matcher_tests    = @active_record_model_sm_model.validator_matcher_tests(::ActiveModel::Validations::ExclusionValidator)
+- validate_inclusion_of_matcher_tests    = @active_record_model_sm_model.validator_matcher_tests(::ActiveModel::Validations::InclusionValidator)
+- validate_length_of_matcher_tests       = @active_record_model_sm_model.validator_matcher_tests(::ActiveModel::Validations::LengthValidator)
+- validate_numericality_of_matcher_tests = @active_record_model_sm_model.validator_matcher_tests(::ActiveModel::Validations::NumericalityValidator)
+- validate_presence_of_matcher_tests     = @active_record_model_sm_model.validator_matcher_tests(::ActiveRecord::Validations::PresenceValidator)
+- validate_uniqueness_of_matcher_tests   = @active_record_model_sm_model.validator_matcher_tests(::ActiveRecord::Validations::UniquenessValidator)
+
+- if allow_value_matcher_tests.present?           || validate_absence_of_matcher_tests.present?      || |
+    validate_acceptance_of_matcher_tests.present? || validate_confirmation_of_matcher_tests.present? || |
+    validate_exclusion_of_matcher_tests.present?  || validate_inclusion_of_matcher_tests.present?    || |
+    validate_length_of_matcher_tests.present?     || validate_numericality_of_matcher_tests.present? || |
+    validate_presence_of_matcher_tests.present?   || validate_uniqueness_of_matcher_tests.present?      |
+  = "\n"
+  \# ------------------------------------------------------------------------------------------------
+  \# #### Validations
+
+  - if allow_value_matcher_tests.present?
+    \#
+    \# ##### allow_value
+    \#
+    \# Remove the 'x' from 'xit' once values are entered.
+    \# If your allowed values are only a single value, use: 'is_expected.to allow_value' (singular)
+    = allow_value_matcher_tests
+    = "\n"
+
+  - if validate_absence_of_matcher_tests.present?
+    \#
+    \# ##### validate_absence_of
+    \#
+    = validate_absence_of_matcher_tests
+    = "\n"
+
+  - if validate_acceptance_of_matcher_tests.present?
+    \#
+    \# ##### validate_acceptance_of
+    \#
+    = validate_acceptance_of_matcher_tests
+    = "\n"
+
+  - if validate_confirmation_of_matcher_tests.present?
+    \#
+    \# ##### validate_confirmation_of
+    \#
+    = validate_confirmation_of_matcher_tests
+    = "\n"
+
+  - if validate_exclusion_of_matcher_tests.present?
+    \#
+    \# ##### validate_exclusion_of
+    \#
+    = validate_exclusion_of_matcher_tests
+    = "\n"
+
+  - if validate_inclusion_of_matcher_tests.present?
+    \#
+    \# ##### validate_inclusion_of
+    \#
+    = validate_inclusion_of_matcher_tests
+    = "\n"
+
+  - if validate_length_of_matcher_tests.present?
+    \#
+    \# ##### validate_length_of
+    \#
+    = validate_length_of_matcher_tests
+    = "\n"
+
+  - if validate_numericality_of_matcher_tests.present?
+    \#
+    \# ##### validate_numericality_of
+    \#
+    = validate_numericality_of_matcher_tests
+    = "\n"
+
+  - if validate_presence_of_matcher_tests.present?
+    \#
+    \# ##### validate_presence_of
+    \#
+    = validate_presence_of_matcher_tests
+    = "\n"
+
+  - if validate_uniqueness_of_matcher_tests.present?
+    \#
+    \# ##### validate_uniqueness_of
+    \#
+    \# It is recommended that you review the caveat for the 'validate_uniqueness_of' matcher here:
+    \# https://github.com/thoughtbot/shoulda-matchers/blob/master/lib/shoulda/matchers/active_record/validate_uniqueness_of_matcher.rb
+    \#
+    = validate_uniqueness_of_matcher_tests
+    = "\n"
+
+
+= "end"

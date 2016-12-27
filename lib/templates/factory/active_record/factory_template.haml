@@ -1,0 +1,13 @@
+= "FactoryGirl.define do"
+= "\n"
+
+= "  factory :#{ @active_record_model_factory_sm_model.app_class_name.demodulize.underscore }, class: #{ @active_record_model_factory_sm_model.app_class_name } do"
+- factory_attributes = @active_record_model_factory_sm_model.factory_attributes
+- if factory_attributes.present?
+  = factory_attributes
+- else
+  = "\n"
+= "  end"
+
+= "\n"
+= "end"

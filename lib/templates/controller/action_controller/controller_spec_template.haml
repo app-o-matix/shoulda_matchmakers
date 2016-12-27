@@ -1,0 +1,146 @@
+= "require 'rails_helper'"
+= "\n"
+= "RSpec.describe " + @action_controller_controller_sm_model.app_controller_name.to_s + ", type: :controller, shoulda_matchmakers: true do"
+
+- use_before_action_matcher_tests = @action_controller_controller_sm_model.use_action_matcher_tests(:before)
+- use_after_action_matcher_tests  = @action_controller_controller_sm_model.use_action_matcher_tests(:after)
+- use_around_action_matcher_tests = @action_controller_controller_sm_model.use_action_matcher_tests(:around)
+
+- if use_before_action_matcher_tests.present? || use_after_action_matcher_tests.present? || |
+       use_around_action_matcher_tests.present? |
+  = "\n"
+  \# ------------------------------------------------------------------------------------------------
+  \# #### Callbacks
+
+  - if use_before_action_matcher_tests.present?
+    \#
+    \# ##### before
+    \#
+    = use_before_action_matcher_tests
+    = "\n"
+
+  - if use_after_action_matcher_tests.present?
+    \#
+    \# ##### after
+    \#
+    = use_after_action_matcher_tests
+    = "\n"
+
+  - if use_around_action_matcher_tests.present?
+    \#
+    \# ##### around
+    \#
+    = use_around_action_matcher_tests
+    = "\n"
+
+- if @action_controller_controller_sm_model.app_controller_name.to_s == "ApplicationController"
+  - filter_param_matcher_tests = @action_controller_controller_sm_model.filter_param_matcher_tests
+- else
+  - filter_param_matcher_tests = []
+- permit_matcher_tests       = @action_controller_controller_sm_model.permit_matcher_tests
+
+- if filter_param_matcher_tests.present? || permit_matcher_tests.present?
+  = "\n"
+  \# ------------------------------------------------------------------------------------------------
+  \# #### Parameters
+
+  - if filter_param_matcher_tests.present?
+    \#
+    \# ##### filter_param
+    \#
+    = filter_param_matcher_tests
+    = "\n"
+
+  - if permit_matcher_tests.present?
+    \#
+    \# ##### permit
+    \#
+    = permit_matcher_tests
+    = "\n"
+
+
+- route_matcher_tests = @action_controller_controller_sm_model.route_matcher_tests
+
+- if route_matcher_tests.present?
+  = "\n"
+  \# ------------------------------------------------------------------------------------------------
+  \# #### Routes
+  \#
+  \# ##### route
+  \#
+  = route_matcher_tests
+  = "\n"
+
+
+- redirect_to_matcher_tests        = @action_controller_controller_sm_model.redirect_to_matcher_tests
+- render_template_matcher_tests    = @action_controller_controller_sm_model.render_template_matcher_tests
+- render_with_layout_matcher_tests = @action_controller_controller_sm_model.render_with_layout_matcher_tests
+- rescue_from_matcher_tests        = @action_controller_controller_sm_model.rescue_from_matcher_tests
+- respond_with_matcher_tests       = @action_controller_controller_sm_model.respond_with_matcher_tests
+
+- if redirect_to_matcher_tests.present? || render_template_matcher_tests.present? || |
+       render_with_layout_matcher_tests.present? || rescue_from_matcher_tests.present? || |
+       respond_with_matcher_tests.present? |
+
+  = "\n"
+  \# ------------------------------------------------------------------------------------------------
+  \# #### Redirect/Render/Rescue/Respond
+
+  - if redirect_to_matcher_tests.present?
+    \#
+    \# ##### redirect_to
+    \#
+    = redirect_to_matcher_tests
+    = "\n"
+
+  - if render_template_matcher_tests.present?
+    \#
+    \# ##### render_template
+    \#
+    = render_template_matcher_tests
+    = "\n"
+
+  - if render_with_layout_matcher_tests.present?
+    \#
+    \# ##### render_with_layout
+    \#
+    = render_with_layout_matcher_tests
+    = "\n"
+
+  - if rescue_from_matcher_tests.present?
+    \#
+    \# ##### rescue_from
+    \#
+    = rescue_from_matcher_tests
+    = "\n"
+
+  - if respond_with_matcher_tests.present?
+    \#
+    \# ##### respond_with
+    \#
+    = respond_with_matcher_tests
+    = "\n"
+
+- set_flash_matcher_tests   = @action_controller_controller_sm_model.set_flash_matcher_tests
+- set_session_matcher_tests = @action_controller_controller_sm_model.set_session_matcher_tests
+
+- if set_flash_matcher_tests.present? || set_session_matcher_tests.present?
+  = "\n"
+  \# ------------------------------------------------------------------------------------------------
+  \# #### Set
+
+  - if set_flash_matcher_tests.present?
+    \#
+    \# ##### set_flash
+    \#
+    = set_flash_matcher_tests
+    = "\n"
+
+  - if set_session_matcher_tests.present?
+    \#
+    \# ##### set_session
+    \#
+    = set_session_matcher_tests
+    = "\n"
+
+= "end"
